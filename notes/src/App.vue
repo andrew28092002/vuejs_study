@@ -1,22 +1,52 @@
 <template>
   <main>
+    <div v-show="showModal" class="overlay">
+      <div class="modal">
+        <textarea v-model="newNote" />
+        <button @click="addNote">Add Note</button>
+        <button @click="showModal = false" style="background-color: red">
+          Close
+        </button>
+      </div>
+    </div>
     <div class="container">
       <header>
         <h1>Notes</h1>
-        <button>+</button>
+        <button @click="showModal = true">+</button>
       </header>
       <div class="cards-container">
-        <div class="card">
-          <p class="main-text"></p>
-          <p class="date"></p>
+        <div
+          v-for="note in notes"
+          class="card"
+          :style="{ backgroundColor: note.color }"
+        >
+          <p class="main-text">{{ note.text }}</p>
+          <p class="date">{{ note.date.toLocaleDateString("en-US") }}</p>
         </div>
       </div>
     </div>
   </main>
 </template>
+
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showModal: false,
+      notes: [],
+      newNote: "",
+    };
+  },
+  methods: {
+    addNote() {
+      this.notes.push({ text: this.newNote, date: new Date() });
+      this.newNote = "";
+      this.showModal = false
+    },
+  },
+};
 </script>
+
 <style scoped>
 .container {
   max-width: 1000px;
@@ -81,10 +111,6 @@ header button {
   align-items: center;
   justify-content: center;
   z-index: 10;
-}
-main {
-  height: 100vh;
-  width: 100vw;
 }
 .modal {
   width: 750px;
