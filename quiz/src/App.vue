@@ -1,5 +1,7 @@
-<template lang="">
-  <QuizesView />
+<template>
+  <div class="container">
+    <QuizesView />
+  </div>
 </template>
 
 <script setup>

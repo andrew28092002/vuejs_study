@@ -5,7 +5,9 @@
       <input v-model.trim="search" type="text" />
     </header>
     <div class="options-container">
-        <CardComponent v-for="quiz in quizes" :key="quiz.id" :quiz="quiz"/>
+        <transition-group>
+            <CardComponent v-for="quiz in quizes" :key="quiz.id" :quiz="quiz"/>
+        </transition-group>
     </div>
   </div>
 </template>
@@ -19,8 +21,8 @@ const quizes = ref(quizesData);
 const search = ref("");
 
 watch(search, () => {
-  quizes.value = quizes.value.filter((quize) =>
-    quize.name.toLowerCase().includes(search.value.toLocaleLowerCase())
+  quizes.value = quizesData.filter((quiz) =>
+    quiz.name.toLowerCase().includes(search.value.toLocaleLowerCase())
   );
 });
 </script>
@@ -37,6 +39,12 @@ header h1 {
   font-weight: bold;
   margin-right: 30px;
 }
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
 
 header input {
   border: none;
