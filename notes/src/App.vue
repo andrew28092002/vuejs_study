@@ -39,9 +39,13 @@ export default {
   },
   methods: {
     addNote() {
-      this.notes.push({ text: this.newNote, date: new Date() });
+      this.notes.push({ text: this.newNote, date: new Date(), color: this.getRandomColor() });
       this.newNote = "";
-      this.showModal = false
+      this.showModal = false;
+    },
+    getRandomColor() {
+      const color = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+      return color;
     },
   },
 };
