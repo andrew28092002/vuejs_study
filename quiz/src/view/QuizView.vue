@@ -10,6 +10,11 @@
         :question="quiz.questions[currentQuestionIndex]"
         v-on:selectOption="onOptionSelected"
       />
+      <QuizResult
+        v-else
+        :quizQuestionLength="quiz.questions.length"
+        :result="result"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +25,7 @@ import { useRoute } from "vue-router";
 import quizes from "./../data/quizes.json";
 import QuizHeader from "@/component/QuizHeader.vue";
 import QuizQuestion from "@/component/QuizQuestion.vue";
+import QuizResult from "@/component/QuizResult.vue";
 
 const route = useRoute();
 const quizId = parseInt(route.params.id);

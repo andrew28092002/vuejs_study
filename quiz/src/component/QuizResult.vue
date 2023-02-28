@@ -1,7 +1,7 @@
 <template>
   <div class="results">
     <p>Your Results...</p>
-    <h1>{{ numberOfCorrectAnswers }}/{{ quizQuestionLength }}</h1>
+    <h1>{{ result }}/{{ quizQuestionLength }}</h1>
     <RouterLink to="/">Go Back</RouterLink>
   </div>
 </template>
@@ -10,8 +10,8 @@
 import { defineProps } from "vue";
 import { RouterLink } from "vue-router";
 
-const { quizQuestionLength, numberOfCorrectAnswers } = defineProps([
-  "numberOfCorrectAnswers",
+const { quizQuestionLength, result } = defineProps([
+  "result",
   "quizQuestionLength",
 ]);
 </script>
