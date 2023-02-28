@@ -8,6 +8,7 @@
 
 <script setup>
 import { defineProps } from "vue";
+import { RouterLink } from "vue-router";
 
 const { quizQuestionLength, numberOfCorrectAnswers } = defineProps([
   "numberOfCorrectAnswers",
