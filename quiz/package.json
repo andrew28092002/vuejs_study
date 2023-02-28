@@ -34,7 +34,8 @@
       "parser": "@babel/eslint-parser"
     },
     "rules": {
-      "vue/no-setup-props-destructure": "off"
+      "vue/no-setup-props-destructure": "off",
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [

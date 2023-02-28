@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import quizes from "./../data/quizes.json";
 import QuizHeader from "@/component/QuizHeader.vue";
@@ -24,7 +24,7 @@ const barPercentage = computed(
 
 const onOptionSelected = (isCorrect) => {
   if (isCorrect) {
-    numberOfCorrectAnswers.value++;
+    result.value++;
   }
   if (quiz.questions.length - 1 === currentQuestionIndex.value) {
     showResults.value = true;
