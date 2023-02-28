@@ -6,7 +6,7 @@
     />
     <div>
       <QuizQuestion
-        v-if="showResults"
+        v-if="!showResults"
         :question="quiz.questions[currentQuestionIndex]"
         v-on:selectOption="onOptionSelected"
       />
