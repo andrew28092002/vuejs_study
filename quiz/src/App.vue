@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <QuizesView />
+    <router-view></router-view>
   </div>
 </template>
 
